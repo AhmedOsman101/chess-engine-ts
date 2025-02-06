@@ -5,13 +5,14 @@ const log = (x: number, y: number = x) => {
 
 const isEven = (n: number): boolean => (n & 1) === 0;
 
-const isPowerOfTwo = (x: number): boolean => x != 0 && !(x & (x - 1));
+const isPowerOfTwo = (x: number): boolean => x !== 0 && !(x & (x - 1));
 
 const bitLen = (n: number): number => {
-  let length: number = 0;
+  let length = 0;
+  let num = n;
 
   while (n > 0) {
-    n >>= 1;
+    num >>= 1;
     length++;
   }
   return length;
@@ -30,9 +31,10 @@ const toggleBetweenValues = (num: number, val1: number, val2: number) =>
   val1 ^ val2 ^ num;
 
 const binAddition = (a: number, b: number): number => (a | b) + (a & b); // a+b = a|b + a&b
-const binAddition2 = (a: number, b: number): number => (a ^ b) + ((a & b) << 1); // a+b = a^b + 2(a&b)
+const _binAddition2 = (a: number, b: number): number =>
+  (a ^ b) + ((a & b) << 1); // a+b = a^b + 2(a&b)
 
-let x = 21;
+const x = 21;
 let y = checkBit(x, 1);
 
 log(x, y);
