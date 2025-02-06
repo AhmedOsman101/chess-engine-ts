@@ -8,6 +8,3 @@ export const getUnique = (arr: number[]): number | undefined => {
 
   return unique;
 };
-
-console.log(getUnique([1, 1, 2, 2, 3, 3, 0, 0]));
-console.log(getUnique([1, 1, 2, 2, 0]));
