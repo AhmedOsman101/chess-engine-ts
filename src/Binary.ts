@@ -1,5 +1,4 @@
-//ts-worksheet
-const log = (x: number, y: number = x) => {
+const logBin = (x: number, y: number = x) => {
   console.log(y.toString(2).padStart(bitLen(x), "0"));
 };
 
@@ -37,26 +36,26 @@ const _binAddition2 = (a: number, b: number): number =>
 const x = 21;
 let y = checkBit(x, 1);
 
-log(x, y);
+logBin(x, y);
 
 y = checkBit(x, 2);
 
-log(x, y);
+logBin(x, y);
 
 y = checkBit(x, 3);
 
-log(x, y);
+logBin(x, y);
 
 y = checkBit(x, 4);
 
-log(x, y);
+logBin(x, y);
 
 y = checkBit(x, 5);
 
-log(x, y);
+logBin(x, y);
 
 export default {
-  log,
+  logBin,
   isEven,
   isPowerOfTwo,
   bitLen,
