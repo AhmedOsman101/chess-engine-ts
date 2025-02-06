@@ -1,5 +1,4 @@
-import { Application } from "jsr:@oak/oak/application";
-import { Router } from "jsr:@oak/oak/router";
+import { Application, Router } from "@oak/oak";
 
 const PORT = 5000;
 
