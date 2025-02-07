@@ -1,70 +1,52 @@
-const logBin = (x: number, y: number = x) => {
-  console.log(y.toString(2).padStart(bitLen(x), "0"));
+export const bin2str = (num: number, len: number | null = null) => {
+  len ??= bitLen(num);
+  return num.toString(2).padStart(len, "0");
 };
 
-const isEven = (n: number): boolean => (n & 1) === 0;
+export const isEven = (num: number): boolean => (num & 1) === 0;
 
-const isPowerOfTwo = (x: number): boolean => x !== 0 && !(x & (x - 1));
+export const isPowerOfTwo = (num: number) => num !== 0 && !(num & (num - 1));
 
-const bitLen = (n: number): number => {
+export const bitLen = (num: number): number => {
   let length = 0;
-  let num = n;
+  let n = num;
 
   while (n > 0) {
-    num >>= 1;
+    n >>= 1;
     length++;
   }
   return length;
 };
 
-const checkBit = (x: number, n: number): number => x & (1 << n);
+export const checkBit = (num: number, index: number) => num & (1 << index);
 
-const accessNBit = (x: number, n: number): number => (x >> (bitLen(x) - n)) & 1; // left to right
-
-const accessBit = (x: number, n: number): number => (x >> (n - 1)) & 1; // right to left
-
-const toggleBit = (x: number, n: number): number => x ^ (1 << (n - 1));
-const setBit = (x: number, n: number): number => x | (1 << (n - 1));
-const unsetBit = (x: number, n: number): number => x & ~(1 << (n - 1));
-const toggleBetweenValues = (num: number, val1: number, val2: number) =>
-  val1 ^ val2 ^ num;
-
-const binAddition = (a: number, b: number): number => (a | b) + (a & b); // a+b = a|b + a&b
-const _binAddition2 = (a: number, b: number): number =>
-  (a ^ b) + ((a & b) << 1); // a+b = a^b + 2(a&b)
-
-const x = 21;
-let y = checkBit(x, 1);
-
-logBin(x, y);
-
-y = checkBit(x, 2);
-
-logBin(x, y);
-
-y = checkBit(x, 3);
-
-logBin(x, y);
-
-y = checkBit(x, 4);
-
-logBin(x, y);
-
-y = checkBit(x, 5);
-
-logBin(x, y);
-
-export default {
-  logBin,
-  isEven,
-  isPowerOfTwo,
-  bitLen,
-  checkBit,
-  accessBit,
-  accessNBit,
-  toggleBit,
-  setBit,
-  unsetBit,
-  toggleBetweenValues,
-  binAddition,
+export const accessNBit = (num: number, index: number): number => {
+  // left to right
+  return (num >> (bitLen(num) - index)) & 1;
 };
+
+export const accessBit = (num: number, index: number): number => {
+  // right to left (the standard way)
+  return (num >> (index - 1)) & 1;
+};
+
+export const toggleBit = (num: number, index: number): number => {
+  return num ^ (1 << (index - 1));
+};
+export const setBit = (num: number, index: number): number => {
+  return num | (1 << (index - 1));
+};
+export const unsetBit = (num: number, index: number): number => {
+  return num & ~(1 << (index - 1));
+};
+
+export const toggleValues = (
+  num: number,
+  val1: number,
+  val2: number
+): number => {
+  return val1 ^ val2 ^ num;
+};
+
+// a+b = a^b + 2(a&b)
+export const binAddition = (a: number, b: number) => (a ^ b) + ((a & b) << 1);
