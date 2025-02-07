@@ -4,5 +4,6 @@
   },
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.1.4"
-  }
+  },
+  "nodeModulesDir": "auto"
 }

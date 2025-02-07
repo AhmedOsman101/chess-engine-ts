@@ -1,4 +1,12 @@
 {
   "deno.enable": true,
-  "editor.defaultFormatter": "biomejs.biome"
+  "editor.defaultFormatter": "biomejs.biome",
+  "json.format.enable": false,
+  "[json]": {
+    "editor.defaultFormatter": "denoland.vscode-deno",
+  },
+  "biome.enabled": true,
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "always"
+  }
 }
