@@ -4,7 +4,7 @@
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
-    "include": ["**/*.{ts}"],
+    "include": ["**/*.ts"],
     "useEditorconfig": true,
     "indentStyle": "space",
     "indentWidth": 2,
