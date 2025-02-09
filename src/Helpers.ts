@@ -43,20 +43,19 @@ export function printBoard(arr: Array<number>): void {
     B: "♝",
     Q: "♛",
     K: "♚",
-    P: "♟︎", // Black pieces (Unicode chess symbols)
+    P: "♟︎", // White pieces (Unicode chess symbols)
     r: "♖",
     n: "♘",
     b: "♗",
     q: "♕",
     k: "♔",
-    p: "♙", // White pieces (Unicode chess symbols)
+    p: "♙", // Black pieces (Unicode chess symbols)
   };
 
   for (let i = 0; i < arr.length; i += 8) {
     const row = 8 - i / 8;
     const line = arr.slice(i, i + 8).map((cell, col) => {
       const piece = PieceChar[cell];
-      // console.log(`${col}, ${row}`);
       return piece ? pieces[piece] : squareColor(col + row);
     });
     console.log(`${row} |`, line.join(" "));
