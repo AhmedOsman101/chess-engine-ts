@@ -1,4 +1,4 @@
-import { isNumber } from "../Helpers.ts";
+import { isNumber, printBoard } from "./Helpers.ts";
 import { CharPiece, Piece, type TPieceChar } from "../board/Piece.ts";
 import type { GameState } from "../index.d.ts";
 
@@ -10,11 +10,11 @@ export const parseFen = (fen: string): GameState => {
   const [position, turn, castling, enPassant, halfMoves, fullMoves] =
     fen.split(" ");
 
-  position.split("/").forEach((rank, row) => {
+  position.split("/").forEach((line, row) => {
     col = 0;
-    for (let i = 0; i < rank.length; i++) {
-      const char = rank[i];
-      const cellIndex = row * 8 + col;
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      const cellIndex = (7 - row) * 8 + col;
 
       if (isNumber(char)) {
         board.fill(Piece.None, cellIndex, cellIndex + +char);
@@ -35,3 +35,7 @@ export const parseFen = (fen: string): GameState => {
     fullMoves: +fullMoves,
   };
 };
+
+printBoard(
+  parseFen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1").board
+);

@@ -1,4 +1,4 @@
-import { PieceChar } from "./board/Piece.ts";
+import { PieceChar } from "../board/Piece.ts";
 
 export const getUnique = (arr: number[]): number | undefined => {
   let zeroCount = 0;
@@ -54,10 +54,13 @@ export function printBoard(arr: Array<number>): void {
 
   for (let i = 0; i < arr.length; i += 8) {
     const row = 8 - i / 8;
-    const line = arr.slice(i, i + 8).map((cell, col) => {
-      const piece = PieceChar[cell];
-      return piece ? pieces[piece] : squareColor(col + row);
-    });
+    const line = arr
+      .toReversed()
+      .slice(i, i + 8)
+      .map((cell, col) => {
+        const piece = PieceChar[cell];
+        return piece ? pieces[piece] : squareColor(col + row);
+      });
     console.log(`${row} |`, line.join(" "));
   }
   console.log("   -----------------");
