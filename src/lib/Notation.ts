@@ -1,6 +1,6 @@
+import { CharPiece, Piece, type PieceChar } from "../board/Piece.ts";
+import type { GameState, Turn } from "../index.d.ts";
 import { isNumber, printBoard } from "./Helpers.ts";
-import { CharPiece, Piece, type TPieceChar } from "../board/Piece.ts";
-import type { GameState } from "../index.d.ts";
 
 export const parseFen = (fen: string): GameState => {
   const board: number[] = new Array(64);
@@ -20,7 +20,7 @@ export const parseFen = (fen: string): GameState => {
         board.fill(Piece.None, cellIndex, cellIndex + +char);
         col += +char;
       } else {
-        board[cellIndex] = CharPiece[char as TPieceChar];
+        board[cellIndex] = CharPiece[char as PieceChar];
         col++;
       }
     }
@@ -28,7 +28,7 @@ export const parseFen = (fen: string): GameState => {
 
   return {
     board,
-    turn: turn as GameState["turn"],
+    turn: turn as Turn,
     castling,
     enPassant,
     halfMoves: +halfMoves,

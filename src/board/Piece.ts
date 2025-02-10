@@ -30,8 +30,8 @@ export const CharPiece = {
   q: Piece.Black | Piece.Queen,
 } as const;
 
-export type TPieceChar = Keys<typeof CharPiece>;
+export type PieceChar = Keys<typeof CharPiece>;
 
-export const PieceChar = Object.fromEntries(
+export const PieceChars = Object.fromEntries(
   Object.entries(CharPiece).map(([key, value]) => [value, key])
-) as Record<number, TPieceChar>;
+) as Record<number, PieceChar>;

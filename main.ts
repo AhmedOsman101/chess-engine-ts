@@ -1,6 +1,5 @@
 import { Application, Router } from "@oak/oak";
-
-const PORT = 5000;
+import { HOST, PORT } from "./src/lib/Constants.ts";
 
 const router = new Router();
 
@@ -12,6 +11,6 @@ const app = new Application();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen({ port: PORT });
+app.listen({ port: PORT, hostname: HOST });
 
-console.log(`server is running at: http://0.0.0.0:${PORT}`);
+console.log(`server is running at: http://${HOST}:${PORT}`);
