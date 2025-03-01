@@ -37,7 +37,7 @@ export let Moves: Move[];
 export const generateMoves = (): Move[] => {
   const moves: Move[] = [];
   for (let i = 0; i < 64; i++) {
-    // const piece = 
+    // const piece =
   }
   return moves;
 };

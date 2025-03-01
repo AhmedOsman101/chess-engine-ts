@@ -9,10 +9,9 @@ export const isPowerOfTwo = (num: number) => num !== 0 && !(num & (num - 1));
 
 export const bitLen = (num: number): number => {
   let length = 0;
-  let n = num;
 
-  while (n > 0) {
-    n >>= 1;
+  while (num > 0) {
+    num >>= 1;
     length++;
   }
   return length;
