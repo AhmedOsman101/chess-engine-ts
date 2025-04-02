@@ -33,7 +33,7 @@ export function* range(
   }
 }
 
-export function printBoard(arr: Array<number>): void {
+export function printBoard(arr: number[]): void {
   const lightSquare = ""; // U+0020 SPACE
   const darkSquare = "󰝤"; //   U+2588 FULL BLOCK
   const squareColor = (i: number) => (i % 2 === 0 ? lightSquare : darkSquare);
